@@ -10,13 +10,6 @@ body {
 canvas {
     display: block;
 }
-h1 {
-    position: absolute;
-    top: 33%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-}
 div {
     position: absolute;
     color: white;

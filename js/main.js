@@ -80,7 +80,7 @@ document.addEventListener('mousemove', () => {
         curPos[i][4] = y;
 
         // update colors based on mouse pos
-        curColor[i][2] = (1 - Math.min(1,Math.sqrt(
+        curColor[i][2] = (1-Math.min(1,Math.sqrt(
             Math.pow(x - startPos[i][0],2) +
             Math.pow(y - startPos[i][1],2)
         ))) * 255;
