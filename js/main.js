@@ -52,7 +52,7 @@ for (let i = 0; i < NLINES; i++)
     //posAttr[i] = positionAttribute;
 
     curColor[i] = new Float32Array([
-        (curPos[i][0]+1)/2*255, (curPos[i][1]+1)/2*255, (distFromCenter[i]-1)*255, 255, // color 1
+        (curPos[i][0]+1)/2*255, (curPos[i][1]+1)/2*255, 255, 255, // color 1
         0, 0, 0, 0 // color 2
     ]);
 
@@ -80,12 +80,12 @@ document.addEventListener('mousemove', () => {
         curPos[i][4] = y;
 
         // update colors based on mouse pos
-        curColor[i][2] = (1-Math.min(1,Math.sqrt(
-            Math.pow(x - startPos[i][0],2) +
-            Math.pow(y - startPos[i][1],2)
-        ))) * 255;
-        colAttr[i].set(curColor[i]);
-        colAttr[i].needsUpdate = true;
+        //curColor[i][2] = (1-Math.min(1,Math.sqrt(
+            //Math.pow(x - startPos[i][0],2) +
+            //Math.pow(y - startPos[i][1],2)
+        //))) * 255;
+        //colAttr[i].set(curColor[i]);
+        //colAttr[i].needsUpdate = true;
     }
 });
 
