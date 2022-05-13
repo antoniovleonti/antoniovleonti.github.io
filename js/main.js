@@ -42,9 +42,19 @@ for (let i = 0; i < NLINES; i++)
     ];
 
     startPos[i] = [curPos[i][0],curPos[i][1],curPos[i][2]];
-    distFromCenter[i] = 
-        Math.sqrt(  Math.exp(startPos[i][0],2) +
-                    Math.exp(startPos[i][1],2));
+    distFromCenter[i] =
+        Math.sqrt(  Math.exp(-1-startPos[i][0],2) +
+                    Math.exp(-1-startPos[i][1],2));
+
+    const blue = 
+        Math.sqrt(  Math.exp(0-startPos[i][0],2) +
+                    Math.exp(1-startPos[i][1],2));
+    const red = 
+        Math.sqrt(  Math.exp(-1-startPos[i][0],2) +
+                    Math.exp(-1-startPos[i][1],2));
+    const green = 
+        Math.sqrt(  Math.exp(1-startPos[i][0],2) +
+                    Math.exp(-1-startPos[i][1],2));
 
     posAttr[i] = new THREE.Float32BufferAttribute(curPos[i], 3);
     posAttr[i].setUsage( THREE.StreamDrawUsage );
@@ -52,7 +62,7 @@ for (let i = 0; i < NLINES; i++)
     //posAttr[i] = positionAttribute;
 
     curColor[i] = new Float32Array([
-        (curPos[i][0]+1)/2*255, (curPos[i][1]+1)/2*255, 255, 255, // color 1
+        red*255, green/2*255, blue*255, 255, // color 1
         0, 0, 0, 0 // color 2
     ]);
 
@@ -73,12 +83,12 @@ document.addEventListener('mousemove', () => {
     // 'event' keyword is deprecated but it works :-)
     const x = ( event.clientX / window.innerWidth ) * 2 - 1;
     const y = -( event.clientY / window.innerHeight ) * 2 + 1;
+    console.log(x,y);
 
     for(let i = 0; i < NLINES; i++)
     {
         curPos[i][3] = x;
         curPos[i][4] = y;
-
         // update colors based on mouse pos
         //curColor[i][2] = (1-Math.min(1,Math.sqrt(
             //Math.pow(x - startPos[i][0],2) +
@@ -93,7 +103,7 @@ const updateLines = function(time)
 {
     for (let i = 0; i < NLINES; i++)
     {
-        const intensity = 0.01 * (Math.sin(time+distFromCenter[i]*30));
+        const intensity = 0.01 * (Math.sin(time+distFromCenter[i]*300));
         // offset source based on time and location
         curPos[i][0] = startPos[i][0] + Math.cos(time) * intensity;
         curPos[i][1] = startPos[i][1] + Math.sin(time) * intensity;
