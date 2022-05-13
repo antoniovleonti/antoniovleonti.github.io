@@ -1,0 +1,29 @@
+* {
+    font-family: monospace;
+    color: whitesmoke;
+    text-align: center;
+}
+body {
+    margin: 0px;
+    height: 100vh;
+}
+canvas {
+    display: block;
+}
+h1 {
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+div {
+    position: absolute;
+    color: white;
+    font-size: large;
+}
+.mylinks {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
