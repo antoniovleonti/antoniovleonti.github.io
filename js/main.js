@@ -52,7 +52,7 @@ for (let i = 0; i < NLINES; i++)
     //posAttr[i] = positionAttribute;
 
     curColor[i] = new Float32Array([
-        (curPos[i][0]+1)/2*255, (curPos[i][1]+1)/2*255, 0, 255, // color 1
+        (curPos[i][0]+1)/2*255, (curPos[i][1]+1)/2*255, (distFromCenter[i]-1)*255, 255, // color 1
         0, 0, 0, 0 // color 2
     ]);
 
