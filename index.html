@@ -1,50 +1,20 @@
 <!DOCTYPE html>
-<html lang=”en”>
-<head>    
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antonio Leonti</title>
-  <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-  <!--shaders for three.js to use-->
-  <canvas id="bg-canvas"></canvas>
-  <script id="lineVert" type="x-shader/x-vertex">
-    precision mediump float;
-    precision mediump int;
+<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>aleonti.dev</title>
+    <link rel="stylesheet" href="./main.css">
+	</head>
 
-    uniform mat4 modelViewMatrix; // optional
-    uniform mat4 projectionMatrix; // optional
-
-    attribute vec3 position;
-    attribute vec4 color;
-
-    varying vec4 vColor;
-
-    void main()	{
-        vColor = color;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-    }
-  </script>
-  <script id="lineFrag" type="x-shader/x-fragment">
-    precision mediump float;
-    precision mediump int;
-
-    varying vec4 vColor;
-
-    void main()	{
-        vec4 color = vec4( vColor );
-        gl_FragColor = color;
-    }
-  </script>
-  <!--javascript file to draw background using three.js-->
-  <script type="module" src="./js/main.js"></script>
-  <div class="content">
-    <h1>Antonio Leonti</h1>
-    <hr>
-    <a href="https://github.com/antoniovleonti">GitHub</a><br>
-    <a href="https://www.linkedin.com/in/avleonti/">LinkedIn</a><br>
-  </div>
-</body>
+	<body>
+    <div id="info">
+      <h1>Antonio Leonti</h1><br>
+      <a href="https://threejs.org">about</a> -
+      <a href="https://www.linkedin.com/in/avleonti/">linkedin</a> -
+      <a href="https://github.com/antoniovleonti">github</a><br>
+      chop the spheres.
+    </div>
+		<script type="module" src="./main.js"></script>
+	</body>
 </html>
